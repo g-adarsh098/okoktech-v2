@@ -1,0 +1,232 @@
+/* ============================================================
+   LoginorSignUp.css  —  OKOK TECH  |  #4B1679 × #F7F7FF × Anton
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --purple:      #4B1679;
+  --purple-mid:  #6b22a8;
+  --purple-dark: #2e0d4a;
+  --ghost:       #F7F7FF;
+  --ghost-dim:   rgba(247,247,255,0.55);
+  --card-bg:     #0f0619;
+  --border:      rgba(75,22,121,0.4);
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* ── Page Wrapper ── */
+.login_paper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 40px 20px;
+  font-family: var(--font-body);
+  background: #07030f;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background blobs */
+.login_paper::before,
+.login_paper::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+.login_paper::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(75,22,121,0.45) 0%, transparent 70%);
+  top: -200px; left: -200px;
+  animation: blobA 14s ease-in-out infinite alternate;
+}
+.login_paper::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(107,34,168,0.3) 0%, transparent 70%);
+  bottom: -150px; right: -150px;
+  animation: blobA 18s ease-in-out infinite alternate-reverse;
+}
+@keyframes blobA {
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(40px, 40px) scale(1.15); }
+}
+
+/* ── Card container (children of login_paper) ── */
+.login_paper > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Invisible card behind the form elements */
+.login_paper > .auth-tabs {
+  background: transparent;
+}
+
+/* Centered logo/brand above the tabs */
+.login_paper::before {
+  /* reused for bg blob - brand text is handled separately in JSX if needed */
+}
+
+/* ── Auth Tabs ── */
+.auth-tabs {
+  display: flex;
+  background: rgba(247,247,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 4px;
+  gap: 4px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--ghost-dim);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 46px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.auth-tab.active {
+  background: var(--purple);
+  color: var(--ghost);
+  box-shadow: 0 4px 16px rgba(75,22,121,0.5);
+}
+.auth-tab:hover:not(.active) {
+  color: var(--ghost);
+  background: rgba(75,22,121,0.15);
+}
+
+/* ── Inputs ── */
+.login-input {
+  width: 100%;
+  max-width: 360px;
+  padding: 14px 20px;
+  background: rgba(247,247,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--ghost);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  -moz-appearance: textfield;
+}
+.login-input::-webkit-inner-spin-button,
+.login-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+.login-input::placeholder { color: rgba(247,247,255,0.3); }
+.login-input:focus {
+  border-color: var(--purple);
+  background: rgba(75,22,121,0.08);
+  box-shadow: 0 0 0 3px rgba(75,22,121,0.2);
+}
+
+/* ── Login Button ── */
+.login-button {
+  width: 100%;
+  max-width: 360px;
+  padding: 15px 28px;
+  background: var(--purple);
+  border: none;
+  border-radius: 12px;
+  color: var(--ghost);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.login-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(247,247,255,0.12) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.login-button:hover {
+  background: #6b22a8;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(75,22,121,0.5);
+}
+.login-button:hover::before { opacity: 1; }
+.login-button:active { transform: translateY(0); }
+
+/* ── Divider ── */
+.divider {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(247,247,255,0.25);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(75,22,121,0.3);
+}
+
+/* ── Google Button ── */
+.google-btn {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 24px;
+  background: rgba(247,247,255,0.04);
+  border: 1px solid rgba(247,247,255,0.12);
+  border-radius: 12px;
+  color: var(--ghost);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.google-btn:hover {
+  background: rgba(247,247,255,0.08);
+  border-color: rgba(247,247,255,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.google-btn:active { transform: translateY(0); }
+
+.google-icon {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-input,
+  .login-button,
+  .google-btn,
+  .auth-tabs,
+  .divider {
+    max-width: 100%;
+  }
+}

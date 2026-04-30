@@ -1,0 +1,18 @@
+/* ============================================================
+   App.css  —  OKOK TECH  |  #4B1679 × #F7F7FF × Anton
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #07030f;
+  font-family: 'DM Sans', sans-serif;
+  color: #F7F7FF;
+}
+
+.main-content {
+  flex-grow: 1;
+}

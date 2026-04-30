@@ -1,0 +1,53 @@
+/* ============================================================
+   index.css  —  OKOK TECH  |  Global Reset & Base
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Box sizing ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ── Base reset ── */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #07030f;
+  font-family: 'DM Sans', sans-serif;
+  color: #F7F7FF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Root ── */
+#root {
+  max-width: 100% !important;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #07030f; }
+::-webkit-scrollbar-thumb { background: #4B1679; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #6b22a8; }
+
+/* ── Selection ── */
+::selection {
+  background: rgba(75,22,121,0.4);
+  color: #F7F7FF;
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid #4B1679;
+  outline-offset: 2px;
+}

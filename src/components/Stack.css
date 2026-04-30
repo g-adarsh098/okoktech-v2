@@ -1,0 +1,43 @@
+/* ============================================================
+   Stack.css  —  OKOK TECH  |  #4B1679 × #F7F7FF × Anton
+   ============================================================ */
+
+:root {
+  --purple:    #4B1679;
+  --ghost:     #F7F7FF;
+}
+
+/* ── Stack Container ── */
+.stack-container {
+  position: relative;
+  width: 420px;
+  height: 280px;
+  cursor: grab;
+}
+.stack-container:active { cursor: grabbing; }
+
+/* ── Card Rotate Wrappers ── */
+.card-rotate,
+.card-rotate-disabled {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.card-rotate { cursor: grab; }
+.card-rotate:active { cursor: grabbing; }
+.card-rotate-disabled { cursor: pointer; }
+
+/* ── Inner Stack Card ── */
+.stack-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-origin: 90% 90%;
+  will-change: transform;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* The actual visual card styles live in Testimonial.css
+   (testimonial-stack-card) so we don't duplicate here.
+   This file handles only the animation mechanics layer. */
