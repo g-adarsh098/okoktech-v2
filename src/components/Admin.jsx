@@ -319,7 +319,7 @@ const Admin = () => {
                   
                   {/* Display the link if it exists */}
                   {p.projectLink && (
-                    <p><strong>Link:</strong> <a href={p.projectLink} target="_blank" rel="noopener noreferrer" style={{color: '#007bff'}}>View Project</a></p>
+                    <p><strong>Link:</strong> <a href={p.projectLink.startsWith('http') ? p.projectLink : `https://${p.projectLink}`} target="_blank" rel="noopener noreferrer" style={{color: '#007bff'}}>View Project</a></p>
                   )}
                   
                   <p><strong>Date:</strong> {formatDate(p.createdAt)}</p>

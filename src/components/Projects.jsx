@@ -275,7 +275,7 @@ const Projects = ({ enableHover = true }) => {
               {selectedProject.projectLink && (
                 <div className="modal-actions">
                   <a 
-                    href={selectedProject.projectLink} 
+                    href={selectedProject.projectLink.startsWith('http') ? selectedProject.projectLink : `https://${selectedProject.projectLink}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inquire-btn"
